@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+
+        <global-results>
+            <result name="error">404.html</result>
+        </global-results>
+
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.Exception"/>
+        </global-exception-mappings>
+
+        <action name="user" class="action.UserAction">
+            <result name="success" type="json"/>
+            <result name="jump">userCenter.jsp</result>
+            <allowed-methods>hasUser,login,logout,register,userCenter,changeCode,updateAvatar,block</allowed-methods>
+        </action>
+
+        <action name="post" class="action.PostAction">
+            <result name="success" type="json"/>
+            <result name="jump">postDetail.jsp</result>
+            <allowed-methods>add,vote,jumpTo,del</allowed-methods>
+        </action>
+
+        <action name="comment" class="action.CommentAction">
+            <result name="success" type="json"/>
+            <allowed-methods>add,del</allowed-methods>
+        </action>
+
+        <action name="page" class="action.PageAction">
+            <result name="success">index.jsp</result>
+        </action>
+
+        <action name="code" class="action.CodeAction">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">imageStream</param>
+                <param name="bufferSize">2048</param>
+            </result>
+            <allowed-methods>get</allowed-methods>
+        </action>
+
+        <action name="search" class="action.SearchAction">
+            <result name="success">search.jsp</result>
+        </action>
+    </package>
+</struts>

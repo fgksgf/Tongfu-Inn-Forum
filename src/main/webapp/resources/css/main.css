@@ -1,0 +1,36 @@
+body {
+    overflow-x:hidden
+}
+
+.navbar {
+    /*background-color: #EEEEEE;*/
+}
+
+#title {
+    color: #4489FE;
+    /*color: #428BCA;*/
+    /*color: #2F3192;*/
+    font-size: 48px;
+    margin-right: 40px;
+}
+
+#navbar {
+    font-size: 20px;
+    color: black;
+}
+
+.jumbotron a {
+    float: right;
+}
+
+#register-btn {
+    /*background-color: #2F3192;*/
+}
+
+.footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
